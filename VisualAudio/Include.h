@@ -3,12 +3,16 @@
 #define _CRT_SECURE_NO_DEPRECATE
 
 
-//LIBPNG INCLUDES
-#include <png.h>
+//STD INCLUDES
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdint.h>
 
+//LIBPNG INCLUDE
+#include <png.h>
+//AUDIOFILE INCLUDE
 #include "AudioFile.h"
 
-int testPNG();
+//FUNCTIONS
+void audioToImg(std::string audioPath);
+
