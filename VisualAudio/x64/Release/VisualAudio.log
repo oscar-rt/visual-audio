@@ -1,0 +1,16 @@
+﻿  Source.cpp
+c:\projects\c++\visualaudio\visualaudio\source.cpp(87): warning C4267: 'argument': conversion from 'size_t' to 'png_uint_32', possible loss of data
+c:\projects\c++\visualaudio\visualaudio\source.cpp(96): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+c:\projects\c++\visualaudio\visualaudio\source.cpp(157): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+c:\projects\c++\visualaudio\visualaudio\source.cpp(158): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+Source.obj : error LNK2001: unresolved external symbol png_destroy_write_struct
+Source.obj : error LNK2001: unresolved external symbol png_set_longjmp_fn
+Source.obj : error LNK2001: unresolved external symbol png_malloc
+Source.obj : error LNK2001: unresolved external symbol png_create_write_struct
+Source.obj : error LNK2001: unresolved external symbol png_init_io
+Source.obj : error LNK2001: unresolved external symbol png_set_rows
+Source.obj : error LNK2001: unresolved external symbol png_free
+Source.obj : error LNK2001: unresolved external symbol png_write_png
+Source.obj : error LNK2001: unresolved external symbol png_set_IHDR
+Source.obj : error LNK2001: unresolved external symbol png_create_info_struct
+C:\Projects\C++\VisualAudio\x64\Release\VisualAudio.exe : fatal error LNK1120: 10 unresolved externals
