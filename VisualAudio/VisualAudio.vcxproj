@@ -132,12 +132,15 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="AudioFile.cpp" />
-    <ClCompile Include="Source.cpp" />
+    <ClCompile Include="PNGToWAV.cpp" />
+    <ClCompile Include="VisualAudio.cpp" />
+    <ClCompile Include="Transforms.cpp" />
     <ClCompile Include="WAVToPNG.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AudioFile.h" />
     <ClInclude Include="Include.h" />
+    <ClInclude Include="Tranforms.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -1,17 +1,12 @@
-﻿  MP3toPNG.cpp
-c:\projects\c++\visualaudio\visualaudio\mp3topng.cpp(21): warning C4244: 'initializing': conversion from 'double' to 'long', possible loss of data
-c:\projects\c++\visualaudio\visualaudio\mp3topng.cpp(28): warning C4244: 'initializing': conversion from 'double' to 'long', possible loss of data
-c:\projects\c++\visualaudio\visualaudio\mp3topng.cpp(32): warning C4244: '=': conversion from 'double' to 'long', possible loss of data
-c:\projects\c++\visualaudio\visualaudio\mp3topng.cpp(36): warning C4244: '=': conversion from 'double' to 'png_byte', possible loss of data
-c:\projects\c++\visualaudio\visualaudio\mp3topng.cpp(40): warning C4244: '=': conversion from 'double' to 'png_byte', possible loss of data
-c:\projects\c++\visualaudio\visualaudio\mp3topng.cpp(45): warning C4244: '=': conversion from 'long' to 'png_byte', possible loss of data
-c:\projects\c++\visualaudio\visualaudio\mp3topng.cpp(54): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
-c:\projects\c++\visualaudio\visualaudio\mp3topng.cpp(79): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-c:\projects\c++\visualaudio\visualaudio\mp3topng.cpp(102): warning C4018: '<': signed/unsigned mismatch
-c:\projects\c++\visualaudio\visualaudio\mp3topng.cpp(113): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
-c:\projects\c++\visualaudio\visualaudio\mp3topng.cpp(213): warning C4244: 'argument': conversion from 'double' to 'const unsigned int', possible loss of data
-c:\projects\c++\visualaudio\visualaudio\mp3topng.cpp(261): warning C4018: '<': signed/unsigned mismatch
-c:\projects\c++\visualaudio\visualaudio\mp3topng.cpp(268): warning C4018: '<': signed/unsigned mismatch
-c:\projects\c++\visualaudio\visualaudio\mp3topng.cpp(64): warning C4715: 'nextPerfectSquare': not all control paths return a value
-LINK : warning LNK4098: defaultlib 'LIBCMTD' conflicts with use of other libs; use /NODEFAULTLIB:library
+﻿  WAVToPNG.cpp
+c:\projects\c++\visualaudio\visualaudio\wavtopng.cpp(24): warning C4244: 'initializing': conversion from 'double' to 'long', possible loss of data
+c:\projects\c++\visualaudio\visualaudio\wavtopng.cpp(31): warning C4244: 'initializing': conversion from 'double' to 'long', possible loss of data
+c:\projects\c++\visualaudio\visualaudio\wavtopng.cpp(35): warning C4244: '=': conversion from 'double' to 'long', possible loss of data
+c:\projects\c++\visualaudio\visualaudio\wavtopng.cpp(39): warning C4244: '=': conversion from 'double' to 'png_byte', possible loss of data
+c:\projects\c++\visualaudio\visualaudio\wavtopng.cpp(43): warning C4244: '=': conversion from 'double' to 'png_byte', possible loss of data
+c:\projects\c++\visualaudio\visualaudio\wavtopng.cpp(48): warning C4244: '=': conversion from 'long' to 'png_byte', possible loss of data
+c:\projects\c++\visualaudio\visualaudio\wavtopng.cpp(134): warning C4244: 'argument': conversion from 'double' to 'const unsigned int', possible loss of data
+c:\projects\c++\visualaudio\visualaudio\wavtopng.cpp(195): warning C4018: '<': signed/unsigned mismatch
+c:\projects\c++\visualaudio\visualaudio\wavtopng.cpp(209): warning C4018: '<': signed/unsigned mismatch
+c:\projects\c++\visualaudio\visualaudio\wavtopng.cpp(228): warning C4018: '<': signed/unsigned mismatch
   VisualAudio.vcxproj -> C:\Projects\C++\VisualAudio\Debug\VisualAudio.exe

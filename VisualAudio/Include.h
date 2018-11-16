@@ -13,6 +13,7 @@
 //AUDIOFILE INCLUDE
 #include "AudioFile.h"
 
-//FUNCTIONS
-void audioToImg(std::string audioPath);
+//PROCESS ARGUMENTS
+int process_cla(std::vector<std::string> arguments);
+
 

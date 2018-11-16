@@ -1,18 +1,21 @@
 #include "Include.h"
+#include "Tranforms.h"
+
+const char* filenames[] = { "image1.png", "image2.png", "image3.png", "image4.png",
+							"image5.png", "image6.png", "image7.png", "image8.png", };
 
 typedef struct {
 
-	int factor1;
-	int factor2;
-	int e_margin;
+	png_byte r;
+	png_byte g;
+	png_byte b;
 
-} factorpair;
+} pixel_rgb;
 
-const char* filenames[] = { "image1.png", "image2.png", "image3.png" };
+//essentially converting a base 10 double d to base 255
+void double_to_rgb(double d, png_byte &r, png_byte &g, png_byte &b) {
 
-void setRGBFromDouble(double d, png_byte &r, png_byte &g, png_byte &b) {
-
-	d += 1;
+	d += 1; //make sample positive
 
 	double realmax = 255 * 255 * 255;
 	double realmin = 0;
@@ -48,106 +51,24 @@ void setRGBFromDouble(double d, png_byte &r, png_byte &g, png_byte &b) {
 	}
 }
 
-bool is_perfect_square(int n) {
-	if (n < 0)
-		return false;
-	int root(round(sqrt(n)));
-	return n == root * root;
-}
+void set_best_size(long int &width, long int &height, int size) {
 
-int nextPerfectSquare(int n) {
-	for (int i = n + 1; i < INT_MAX; i++) {
-		if (is_perfect_square(i)) {
-			return i;
-		}
-	}
-}
+	long int idealdim = (int)sqrt(size);
 
-typedef struct {
-
-	const float TARGET_FACTOR = .25;
-	int size_target;
-	int lowest_emargin;
-	std::vector<factorpair> factorpairs;
-
-	bool unsuitable() {
-
-		if (factorpairs.empty()) {
-			return true;
-		}
-		else {
-			int limit = size_target * TARGET_FACTOR;
-			factorpair fpair = factorpairs.at(0);
-			if (fpair.e_margin > limit) {
-				return true;
-			}
-			return false;
-		}
-	}
-
-	void allocate(factorpair fpair) {
-		if (fpair.e_margin < lowest_emargin) {
-			factorpairs.insert(factorpairs.begin(), fpair);
-		}
-		else {
-			factorpairs.push_back(fpair);
-		}
-	}
-
-	bool isFactor(int x) {
-		if (factorpairs.empty()) {
-			return false;
-		}
-		else {
-			for (int i = 0; i < factorpairs.size(); i++) {
-				factorpair pair = factorpairs.at(i);
-				return pair.factor1 != x && pair.factor2 != x;
-			}
-		}
-	}
-
-} factorpairs;
-
-void bestImageSizeSquare(int &width, int &height, int size) {
-
-	int idealdim = sqrt(size);
-	if (idealdim * idealdim == size) {
+	//this will rarely be the case
+	if (idealdim * idealdim == size){
 		width = idealdim;
 		height = idealdim;
 	}
-	else {
-		factorpairs fpairs;
-		fpairs.lowest_emargin = size;
-		fpairs.size_target = size;
-		for (int i = 2; i < size; i++) {
-			factorpair fpair;
-			if (size % i == 0) {
-				fpair.factor1 = i;
-				fpair.factor2 = size / i;
-				int f1_emargin = (idealdim > fpair.factor1) ? idealdim - fpair.factor1 : fpair.factor1 - idealdim;
-				int f2_emargin = (idealdim > fpair.factor2) ? idealdim - fpair.factor2 : fpair.factor2 - idealdim;
-				fpair.e_margin = f1_emargin + f2_emargin;
-				fpairs.allocate(fpair);
-			}
-		}
-		if (fpairs.unsuitable()) {
-			int nps = nextPerfectSquare(idealdim);
-			factorpair fpair = fpairs.factorpairs.at(0);
-			std::cout << "Faulty factors = " << fpair.factor1 << " * " << fpair.factor2 << std::endl;
-			width = nps;
-			height = nps;
-			std::cout << "Better factor = " << nps << std::endl;
-		}
-		else {
-			factorpair fpair = fpairs.factorpairs.at(0);
-			std::cout << "Best factors = " << fpair.factor1 << " * " << fpair.factor2 << std::endl;
-		}
+	//add one since integers round down, no need to worry about overflow since (a + 1) * a > c  where a = sqrt(c)
+	else if (idealdim * (idealdim + 1) > size) {
+		width = idealdim;
+		height = idealdim + 1;
 	}
 }
 
 
-
-int generate_img(int width, int height, std::vector<double> samples, const char* filename) {
+int generate_img(long int width, long int height, std::vector<pixel_rgb> pixel_a, const char* filename) {
 
 	const char* title = "image";
 	int code = 0;
@@ -210,7 +131,10 @@ int generate_img(int width, int height, std::vector<double> samples, const char*
 	int x, y;
 	for (y = 0; y < height; y++) {
 		for (x = 0; x < width * 3; x += 3) {
-			setRGBFromDouble(samples.at(counter), row[x], row[x + 1], row[x + 2]);
+			pixel_rgb pixel = pixel_a[counter];
+			row[x] = pixel.r;
+			row[x + 1] = pixel.g;
+			row[x + 2] = pixel.b;
 			counter++;
 		}
 		png_write_row(png_ptr, row);
@@ -229,45 +153,76 @@ finalise:
 	return code;
 }
 
-void audioToImg(std::string audioPath) {
+void wav_to_png(std::string audio_path) {
+
+	log("attempting to load audiofile...");
 
 	AudioFile<double> audioFile;
-	audioFile.load(audioPath);
+	audioFile.load(audio_path);
 
-	int numChannels = audioFile.getNumChannels();
-	int numSamples = audioFile.getNumSamplesPerChannel();
+	log("loaded audiofile!");
 
-	std::vector<std::vector<double>> channels;
+	long int numchannels = audioFile.getNumChannels();
+	long int numsamples = audioFile.getNumSamplesPerChannel();
 
-	for (int c = 0; c < numChannels; c++) {
-		std::vector<double> samples;
+	std::vector<std::vector<pixel_rgb>> channels_ap;
 
-		for (int i = 0; i < numSamples; i++) {
-			samples.push_back(audioFile.samples[c][i]);
+	for (int c = 0; c < numchannels; c++) {
+		std::vector<pixel_rgb> pixels;
+
+		for (int i = 0; i < numsamples; i++) {
+			pixel_rgb pixel;
+			double sample = audioFile.samples[c][i];
+			double_to_rgb(sample, pixel.r, pixel.g, pixel.b);
+			pixels.push_back(pixel);
 		}
 
-		channels.push_back(samples);
+		channels_ap.push_back(pixels);
 	}
 
-	int width = 0;
-	int height = 0;
+	long int width = 0;
+	long int height = 0;
 
-	bestImageSizeSquare(width, height, numSamples);
+	log("made pixels vector");
 
-	int sizeA = width * height;
+	set_best_size(width, height, numsamples);
 
-	if (sizeA > numSamples) {
-		int discrepancy = sizeA - numSamples;
-		for (int i = 0; i < channels.size(); i++) {
-			for (int j = 0; j < discrepancy; j++) {
-				channels.at(i).push_back(0);
+	long int sizeA = width * height;
+	
+	//fill extra space with grey pixels
+	if (sizeA > numsamples) {
+		long int discrepancy = sizeA - numsamples;
+		for (int i = 0; i < channels_ap.size(); i++) {
+			for (long int j = 0; j < discrepancy; j++) {
+				pixel_rgb pixel;
+				pixel.r = 127;
+				pixel.g = 127;
+				pixel.b = 127;
+				channels_ap.at(i).push_back(pixel);
 			}
 		}
 	}
 
-	for (int i = 0; i < channels.size(); i++) {
-		std::vector<double> samples = channels.at(i);
-		generate_img(width, height, samples, filenames[i]);
+	log("found best size and adjused accordingly");
+	//if make mono, consolidate all channels as pixels to one channel then generate an image
+	if (stng_make_mono) {
+		for (int c = 1; c < channels_ap.size(); c++) {
+			for (int i = 0; i < numsamples; i++) {
+				//maybe clean this up later?
+				channels_ap.at(0).at(i).r = (channels_ap.at(0).at(i).r + channels_ap.at(c).at(i).r) / 2;
+				channels_ap.at(0).at(i).g = (channels_ap.at(0).at(i).g + channels_ap.at(c).at(i).g) / 2;
+				channels_ap.at(0).at(i).b = (channels_ap.at(0).at(i).b + channels_ap.at(c).at(i).b) / 2;
+			}
+		}
+		generate_img(width, height, channels_ap.at(0), "image.png");
+	}
+	//generate an image for each channel
+	else {
+		for (int i = 0; i < channels_ap.size(); i++) {
+			std::vector<pixel_rgb> pixels = channels_ap.at(i);
+			generate_img(width, height, pixels, filenames[i]);
+		}
 	}
 
+	log("generated image.");
 }
