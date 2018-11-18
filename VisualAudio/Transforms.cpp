@@ -28,7 +28,8 @@ int process_cla(std::vector<std::string> arguments) {
 	std::string filepath = arguments.at(1);
 	//image to audio
 	if (head == "ita" && file_format_exists(filepath, ".png")) {
-		
+		log("began image to wav conversion");
+		png_to_wav(filepath);
 	}
 	//multiple images to audio
 	else if (head == "mita") {
@@ -50,9 +51,7 @@ int process_cla(std::vector<std::string> arguments) {
 void log(const char* message) {
 	
 	static int logcounter;
-
 	std::cout  << " >log>" << logcounter << "| " << message << std::endl;
-
 	logcounter++;
  
 }

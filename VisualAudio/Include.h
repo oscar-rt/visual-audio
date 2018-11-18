@@ -8,8 +8,8 @@
 #include <stdlib.h>
 #include <stdint.h>
 
-//LIBPNG INCLUDE
-#include <png.h>
+//LODEPNG INCLUDE
+#include "lodepng.h"
 //AUDIOFILE INCLUDE
 #include "AudioFile.h"
 

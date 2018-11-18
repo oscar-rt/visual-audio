@@ -1,8 +1,10 @@
 #include "Include.h"
 
-int main(int argc, char *args[])
-{	
-	if (argc > 2) {
+int main(int argc, char *args[]){
+
+	
+	if (argc > 2){
+
 		std::vector<std::string> arguments;
 
 		for (int i = 1; i < argc; i++) {
@@ -16,8 +18,11 @@ int main(int argc, char *args[])
 			std::cin.get();
 			return 1;
 		}
+		
 		return 0;
 	}
+
+	return 1;
 }
 
 

@@ -1,12 +1,13 @@
-﻿  WAVToPNG.cpp
-c:\projects\c++\visualaudio\visualaudio\wavtopng.cpp(24): warning C4244: 'initializing': conversion from 'double' to 'long', possible loss of data
-c:\projects\c++\visualaudio\visualaudio\wavtopng.cpp(31): warning C4244: 'initializing': conversion from 'double' to 'long', possible loss of data
-c:\projects\c++\visualaudio\visualaudio\wavtopng.cpp(35): warning C4244: '=': conversion from 'double' to 'long', possible loss of data
-c:\projects\c++\visualaudio\visualaudio\wavtopng.cpp(39): warning C4244: '=': conversion from 'double' to 'png_byte', possible loss of data
-c:\projects\c++\visualaudio\visualaudio\wavtopng.cpp(43): warning C4244: '=': conversion from 'double' to 'png_byte', possible loss of data
-c:\projects\c++\visualaudio\visualaudio\wavtopng.cpp(48): warning C4244: '=': conversion from 'long' to 'png_byte', possible loss of data
-c:\projects\c++\visualaudio\visualaudio\wavtopng.cpp(134): warning C4244: 'argument': conversion from 'double' to 'const unsigned int', possible loss of data
-c:\projects\c++\visualaudio\visualaudio\wavtopng.cpp(195): warning C4018: '<': signed/unsigned mismatch
-c:\projects\c++\visualaudio\visualaudio\wavtopng.cpp(209): warning C4018: '<': signed/unsigned mismatch
-c:\projects\c++\visualaudio\visualaudio\wavtopng.cpp(228): warning C4018: '<': signed/unsigned mismatch
+﻿  PNGToWAV.cpp
+c:\projects\c++\visualaudio\visualaudio\tranforms.h(76): warning C4091: 'typedef ': ignored on left of 'pixel_t' when no variable is declared
+c:\projects\c++\visualaudio\visualaudio\pngtowav.cpp(19): warning C4018: '<': signed/unsigned mismatch
+  Transforms.cpp
+c:\projects\c++\visualaudio\visualaudio\tranforms.h(76): warning C4091: 'typedef ': ignored on left of 'pixel_t' when no variable is declared
+  WAVToPNG.cpp
+c:\projects\c++\visualaudio\visualaudio\tranforms.h(76): warning C4091: 'typedef ': ignored on left of 'pixel_t' when no variable is declared
+c:\projects\c++\visualaudio\visualaudio\wavtopng.cpp(29): warning C4018: '<': signed/unsigned mismatch
+c:\projects\c++\visualaudio\visualaudio\wavtopng.cpp(82): warning C4018: '<': signed/unsigned mismatch
+c:\projects\c++\visualaudio\visualaudio\wavtopng.cpp(94): warning C4018: '<': signed/unsigned mismatch
+c:\projects\c++\visualaudio\visualaudio\wavtopng.cpp(107): warning C4018: '<': signed/unsigned mismatch
+  Generating Code...
   VisualAudio.vcxproj -> C:\Projects\C++\VisualAudio\Debug\VisualAudio.exe

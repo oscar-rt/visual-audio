@@ -899,5 +899,27 @@ T AudioFile<T>::clamp (T value, T minValue, T maxValue)
 }
 
 //===========================================================
+template <class T>
+bool AudioFile<T>::makeWave(std::vector<std::vector<T> > channels) {
+	
+	audioFileFormat = AudioFileFormat::Wave;
+	sampleRate = (uint32_t) 44100;
+	bitDepth = 16;
+	clearAudioBuffer();
+	samples.resize(channels.size());
+	
+	long int numSamples = channels.at(0).size();
+
+	for (int channel = 0; channel < channels.size(); channel++) {
+		for (int i = 0; i < numSamples; i++) {
+			T sample = (T)channels.at(channel).at(i);
+			samples[channel].push_back(sample);
+		}
+	}
+
+	return true;
+}
+
+
 template class AudioFile<float>;
 template class AudioFile<double>;

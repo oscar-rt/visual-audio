@@ -21,7 +21,8 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
  //=======================================================================
-
+ // -Added the make function -Oscar
+ //=======================================================================
 
 #include <iostream>
 #include <vector>
@@ -65,6 +66,11 @@ public:
 	 * @Returns true if the file was successfully saved
 	 */
 	bool save(std::string filePath, AudioFileFormat format = AudioFileFormat::Wave);
+	
+	/** Makes an audio file with the given data.
+	 * @Returns true if the file was made succesfully.
+	 */
+	bool makeWave(std::vector<std::vector<T> > channels);
 
 	//=============================================================
 	/** @Returns the sample rate */
