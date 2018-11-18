@@ -1,6 +1,6 @@
 #pragma once
 
-static bool stng_make_mono = false;
+static bool stng_make_mono = true;
 
 void wav_to_png(std::string audio_path);
 void png_to_wav(std::string audio_path);
