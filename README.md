@@ -4,7 +4,7 @@
 ![Language](https://img.shields.io/badge/language-C++-blue.svg?style=flat-square)
 
 ### Credit due
-Visual Audio uses the LodePNG decoder/encoder written by Lode Vandevenne ([Repository Link](https://github.com/lvandeve/lodepng)), alongside the AudioFile library written by Adam Stark ([Repository Link](https://github.com/adamstark/AudioFile)). Without either of these projects, this idea would have taken weeks to work out.
+Visual Audio uses the LodePNG decoder/encoder ([Repository Link](https://github.com/lvandeve/lodepng)) written by Lode Vandevenne, alongside the AudioFile library ([Repository Link](https://github.com/adamstark/AudioFile)) written by Adam Stark. Without either of these projects, this idea would have taken weeks to work out.
 
 ## What is Visual Audio?
 
