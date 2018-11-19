@@ -47,7 +47,7 @@ It's that simple! Just wait for VisualAudio to do its thing and you should have 
 
 ### Download/Get VisualAudio
 
-Check out the releases page!
+Check out the releases page! [Link](https://github.com/oscar-rt/visual-audio/releases)
 
 
 
