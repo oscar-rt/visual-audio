@@ -1,86 +1,19 @@
-﻿  AudioFile.cpp
-c:\projects\c++\visualaudio\visualaudio\audiofile.cpp(913): warning C4018: '<': signed/unsigned mismatch
-  c:\projects\c++\visualaudio\visualaudio\audiofile.cpp(903): note: while compiling class template member function 'bool AudioFile<float>::makeWave(std::vector<std::vector<T,std::allocator<_Ty>>,std::allocator<std::vector<_Ty,std::allocator<_Ty>>>>)'
-          with
-          [
-              T=float,
-              _Ty=float
-          ]
-  c:\projects\c++\visualaudio\visualaudio\audiofile.cpp(924): note: see reference to class template instantiation 'AudioFile<float>' being compiled
-c:\projects\c++\visualaudio\visualaudio\audiofile.cpp(439): warning C4018: '>': signed/unsigned mismatch
-  c:\projects\c++\visualaudio\visualaudio\audiofile.cpp(374): note: while compiling class template member function 'bool AudioFile<float>::decodeAiffFile(std::vector<uint8_t,std::allocator<_Ty>> &)'
-          with
-          [
-              _Ty=uint8_t
-          ]
-  c:\projects\c++\visualaudio\visualaudio\audiofile.cpp(247): note: see reference to function template instantiation 'bool AudioFile<float>::decodeAiffFile(std::vector<uint8_t,std::allocator<_Ty>> &)' being compiled
-          with
-          [
-              _Ty=uint8_t
-          ]
-c:\projects\c++\visualaudio\visualaudio\audiofile.cpp(790): warning C4018: '<': signed/unsigned mismatch
-  c:\projects\c++\visualaudio\visualaudio\audiofile.cpp(789): note: while compiling class template member function 'void AudioFile<float>::clearAudioBuffer(void)'
-  c:\projects\c++\visualaudio\visualaudio\audiofile.cpp(908): note: see reference to function template instantiation 'void AudioFile<float>::clearAudioBuffer(void)' being compiled
-c:\projects\c++\visualaudio\visualaudio\audiofile.cpp(847): warning C4018: '<': signed/unsigned mismatch
-  c:\projects\c++\visualaudio\visualaudio\audiofile.cpp(843): note: while compiling class template member function 'int AudioFile<float>::getIndexOfString(std::vector<uint8_t,std::allocator<_Ty>> &,std::string)'
-          with
-          [
-              _Ty=uint8_t
-          ]
-  c:\projects\c++\visualaudio\visualaudio\audiofile.cpp(268): note: see reference to function template instantiation 'int AudioFile<float>::getIndexOfString(std::vector<uint8_t,std::allocator<_Ty>> &,std::string)' being compiled
-          with
-          [
-              _Ty=uint8_t
-          ]
-c:\projects\c++\visualaudio\visualaudio\audiofile.cpp(881): warning C4244: '=': conversion from 'double' to 'T', possible loss of data
-          with
-          [
-              T=float
-          ]
-  c:\projects\c++\visualaudio\visualaudio\audiofile.cpp(879): note: while compiling class template member function 'uint8_t AudioFile<float>::sampleToSingleByte(T)'
-          with
-          [
-              T=float
-          ]
-  c:\projects\c++\visualaudio\visualaudio\audiofile.cpp(586): note: see reference to function template instantiation 'uint8_t AudioFile<float>::sampleToSingleByte(T)' being compiled
-          with
-          [
-              T=float
-          ]
-c:\projects\c++\visualaudio\visualaudio\audiofile.cpp(736): warning C4018: '<': signed/unsigned mismatch
-  c:\projects\c++\visualaudio\visualaudio\audiofile.cpp(735): note: while compiling class template member function 'void AudioFile<float>::addStringToFileData(std::vector<uint8_t,std::allocator<_Ty>> &,std::string)'
-          with
-          [
-              _Ty=uint8_t
-          ]
-  c:\projects\c++\visualaudio\visualaudio\audiofile.cpp(550): note: see reference to function template instantiation 'void AudioFile<float>::addStringToFileData(std::vector<uint8_t,std::allocator<_Ty>> &,std::string)' being compiled
-          with
-          [
-              _Ty=uint8_t
-          ]
-c:\projects\c++\visualaudio\visualaudio\audiofile.cpp(718): warning C4018: '<': signed/unsigned mismatch
-  c:\projects\c++\visualaudio\visualaudio\audiofile.cpp(713): note: while compiling class template member function 'bool AudioFile<float>::writeDataToFile(std::vector<uint8_t,std::allocator<_Ty>> &,std::string)'
-          with
-          [
-              _Ty=uint8_t
-          ]
-  c:\projects\c++\visualaudio\visualaudio\audiofile.cpp(623): note: see reference to function template instantiation 'bool AudioFile<float>::writeDataToFile(std::vector<uint8_t,std::allocator<_Ty>> &,std::string)' being compiled
-          with
-          [
-              _Ty=uint8_t
-          ]
-  lodepng.cpp
-  PNGToWAV.cpp
-c:\projects\c++\visualaudio\visualaudio\tranforms.h(76): warning C4091: 'typedef ': ignored on left of 'pixel_t' when no variable is declared
+﻿  PNGToWAV.cpp
+c:\projects\c++\visualaudio\visualaudio\tranforms.h(78): warning C4091: 'typedef ': ignored on left of 'pixel_t' when no variable is declared
 c:\projects\c++\visualaudio\visualaudio\pngtowav.cpp(19): warning C4018: '<': signed/unsigned mismatch
-  VisualAudio.cpp
+c:\projects\c++\visualaudio\visualaudio\pngtowav.cpp(45): warning C4018: '<': signed/unsigned mismatch
+c:\projects\c++\visualaudio\visualaudio\pngtowav.cpp(52): warning C4018: '<': signed/unsigned mismatch
+c:\projects\c++\visualaudio\visualaudio\pngtowav.cpp(53): warning C4018: '<': signed/unsigned mismatch
   Transforms.cpp
-c:\projects\c++\visualaudio\visualaudio\tranforms.h(76): warning C4091: 'typedef ': ignored on left of 'pixel_t' when no variable is declared
+c:\projects\c++\visualaudio\visualaudio\tranforms.h(78): warning C4091: 'typedef ': ignored on left of 'pixel_t' when no variable is declared
+c:\projects\c++\visualaudio\visualaudio\transforms.cpp(33): warning C4018: '<': signed/unsigned mismatch
+c:\projects\c++\visualaudio\visualaudio\transforms.cpp(49): warning C4018: '<': signed/unsigned mismatch
+c:\projects\c++\visualaudio\visualaudio\transforms.cpp(89): warning C4018: '<': signed/unsigned mismatch
   WAVToPNG.cpp
-c:\projects\c++\visualaudio\visualaudio\tranforms.h(76): warning C4091: 'typedef ': ignored on left of 'pixel_t' when no variable is declared
+c:\projects\c++\visualaudio\visualaudio\tranforms.h(78): warning C4091: 'typedef ': ignored on left of 'pixel_t' when no variable is declared
 c:\projects\c++\visualaudio\visualaudio\wavtopng.cpp(29): warning C4018: '<': signed/unsigned mismatch
-c:\projects\c++\visualaudio\visualaudio\wavtopng.cpp(82): warning C4018: '<': signed/unsigned mismatch
-c:\projects\c++\visualaudio\visualaudio\wavtopng.cpp(94): warning C4018: '<': signed/unsigned mismatch
-c:\projects\c++\visualaudio\visualaudio\wavtopng.cpp(107): warning C4018: '<': signed/unsigned mismatch
+c:\projects\c++\visualaudio\visualaudio\wavtopng.cpp(90): warning C4018: '<': signed/unsigned mismatch
+c:\projects\c++\visualaudio\visualaudio\wavtopng.cpp(104): warning C4018: '<': signed/unsigned mismatch
+c:\projects\c++\visualaudio\visualaudio\wavtopng.cpp(118): warning C4018: '<': signed/unsigned mismatch
   Generating Code...
   VisualAudio.vcxproj -> C:\Projects\C++\VisualAudio\Debug\VisualAudio.exe

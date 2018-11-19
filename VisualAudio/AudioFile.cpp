@@ -904,7 +904,7 @@ bool AudioFile<T>::makeWave(std::vector<std::vector<T> > channels) {
 	
 	audioFileFormat = AudioFileFormat::Wave;
 	sampleRate = (uint32_t) 44100;
-	bitDepth = 16;
+	bitDepth = 24;
 	clearAudioBuffer();
 	samples.resize(channels.size());
 	

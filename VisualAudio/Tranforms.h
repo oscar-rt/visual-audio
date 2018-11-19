@@ -2,10 +2,12 @@
 
 static bool stng_make_mono = true;
 
-void wav_to_png(std::string audio_path);
-void png_to_wav(std::string audio_path);
-void mpng_to_wav(std::vector<std::string> audio_paths);
+int wav_to_png(std::string audio_path);
+int png_to_wav(std::string audio_path);
+int mpng_to_wav(std::vector<std::string> audio_paths);
+void process_flags(std::vector<std::string> flags);
 void log(const char* message);
+void log_e(std::string error, std::string ecode);
 
 typedef struct pixel_t {
 	unsigned char red;

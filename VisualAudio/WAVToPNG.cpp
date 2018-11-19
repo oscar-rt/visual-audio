@@ -37,20 +37,27 @@ void encode(const char* filename, std::vector<pixel_t>& pixels, unsigned width, 
 	if (!error) lodepng::save_file(png, filename);
 
 	//if there's an error, display it
-	if (error) std::cout << "encoder error " << error << ": " << lodepng_error_text(error) << std::endl;
+	if (error) log_e(lodepng_error_text(error), "lodePNG_ENCODE-ERROR: " + error);
 }
 
 
-void wav_to_png(std::string audio_path) {
+int wav_to_png(std::string audio_path) {
 
 	log("attempting to load audiofile...");
 
 	AudioFile<double> audioFile;
-	audioFile.load(audio_path);
-
-	log("loaded audiofile!");
-
+	if (audioFile.load(audio_path)) {
+		log("loaded audiofile!");
+	}
+	else {
+		log_e("could not load audiofile!", "wtpEC001");
+		return 1;
+	}
+	
 	long int numchannels = audioFile.getNumChannels();
+	if (numchannels > 8) {
+		log_e("cannot support more than 8 channels", "wtpEC002");
+	}
 	long int numsamples = audioFile.getNumSamplesPerChannel();
 
 	std::vector<std::vector<pixel_t>> channels_ap;
@@ -76,6 +83,7 @@ void wav_to_png(std::string audio_path) {
 
 	long int sizeA = width * height;
 	
+	log("adjusting pvector size");
 	//fill extra space with grey pixels
 	if (sizeA > numsamples) {
 		long int discrepancy = sizeA - numsamples;
@@ -89,8 +97,10 @@ void wav_to_png(std::string audio_path) {
 
 	log("found best size and adjused accordingly");
 
+	log("encoding image");
 	//if make mono, consolidate all channels as pixels to one channel then generate an image
 	if (stng_make_mono) {
+		log("encoding mono image");
 		for (int c = 1; c < channels_ap.size(); c++) {
 			for (int i = 0; i < numsamples; i++) {
 				//maybe clean this up later?
@@ -104,6 +114,7 @@ void wav_to_png(std::string audio_path) {
 	}
 	//generate an image for each channel
 	else {
+		log("generating image per channel");
 		for (int i = 0; i < channels_ap.size(); i++) {
 			std::vector<pixel_t> pixels = channels_ap.at(i);
 			encode(filenames[i], channels_ap.at(i),width, height);
@@ -111,4 +122,5 @@ void wav_to_png(std::string audio_path) {
 	}
 
 	log("generated images.");
+	return 0;
 }
